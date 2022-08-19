@@ -1,0 +1,35 @@
+table {
+    width: 80%;
+    margin: 32px auto;
+    text-align: left;
+    border-collapse: collapse;
+    font-size: 24px;
+}
+
+thead {
+    text-align: center;
+}
+
+thead th {
+    border: 1px solid black;
+    font-size: 32px;
+}
+
+thead th:hover {
+    cursor: pointer;
+    transition: 0.3s;
+    background: rgb(205, 205, 205);
+}
+
+tbody td {}
+
+.table {
+    display: flex;
+    flex-direction: column;
+}
+
+.table__input {
+    width: 15%;
+    height: 30px;
+    margin: 16px auto;
+}

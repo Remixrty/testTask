@@ -1,0 +1,95 @@
+/* Block .input  */
+
+.input {
+    cursor: text;
+    /* width: 100%; */
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 16px 8px 16px;
+    border: 1px solid #D6DADE;
+    border-radius: 2px;
+    margin-bottom: 32px;
+}
+
+.input__field {
+    cursor: text;
+    color: black;
+    outline: none;
+    border: none;
+    background: none;
+    width: 100%;
+}
+
+.input__field::-webkit-outer-spin-button, .inputField::-webkit-inner-spin-button {
+    display: none;
+}
+
+.input__label {
+    /* margin-left: 10px; */
+    /* left: 10px; */
+    position: absolute;
+    transition: 0.3s;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    color: #6A6E72;
+
+}
+
+
+
+.input__text {
+    margin-left: 13px;
+    cursor: text;
+}
+
+.input__field:focus+.input__label {
+    transition: 0.3s;
+    transform: translateY(-14px);
+}
+
+.input__field:not(:placeholder-shown)+.input__label {
+    transition: 0.3s;
+    transform: translateY(-14px);
+}
+
+.required_move {
+    transition: 0.3s;
+    position: absolute;
+}
+
+.required_position {
+    padding-top: 5px;
+}
+
+.input__field:focus+.required_move {
+    transition: 0.3s;
+    transform: translateY(-14px);
+}
+
+
+.input__image {
+    width: 18px;
+    height: 18px;
+}
+
+
+/* Mods */
+.input_short {}
+
+.input_req {}
+
+.input_move {}
+
+.required {
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    color: #D90000;
+}
