@@ -5,7 +5,7 @@ import '../style/Input.css'
 
 
 export default function ModalForm({ active, setActive }) {
-   
+
     function closeForm(e) {
         setActive(false)
     }
@@ -32,7 +32,8 @@ export default function ModalForm({ active, setActive }) {
                                 <div className='avatar__prewiew'>
                                     <img src='/images/prewiew.png' />
                                 </div>
-                                <div className='avatar__delete' />
+                                <div className='avatar__delete' >
+                                </div>
                                 <div className='avatar__choose'>
                                     <img src='/images/choose-file.png' />
                                     Выберите файл
