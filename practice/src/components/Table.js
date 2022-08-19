@@ -40,14 +40,16 @@ export default function Table() {
         return { immortalData: sortData }
     }
 
+    useEffect(() => {
+        searching()
+    }, [searchString])
 
-
-    function searching(str) {
-        if (immortalData.length !== data.length) {
+    function searching() {
+        if (immortalData?.length !== data?.length) {
             setImmortalData(data)
         }
-        if (str.length > 2) {
-            setSearchString(str)
+        if (searchString.length > 2) {
+            console.log(searchString);
             setImmortalData(findData)
         }
     }
@@ -62,7 +64,7 @@ export default function Table() {
                 <button>Назад</button>
             </Link>
             <div className='table'>
-                <input type='text' className='table__input' placeholder='Поиск' onChange={e => searching(e.target.value)}></input>
+                <input type='text' className='table__input' placeholder='Поиск' onChange={e => setSearchString(e.target.value)}></input>
                 <table>
                     <thead>
                         <tr>
