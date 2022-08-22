@@ -76,6 +76,41 @@
     height: 18px;
 }
 
+.input__dropdown {
+    visibility: hidden;
+    font-family: 'PT Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    /* position: absolute; */
+    z-index: 555;
+    width: 100%;
+}
+
+.list {
+    width: 100%;
+    background: white;
+    border: 1px solid #D6DADE;
+    border-radius: 4px;
+    margin-left: 0;
+    padding: 8px;
+}
+
+.list__item {
+    border-bottom: #D6DADE 1px solid;
+    list-style-type: none;
+    margin-bottom: 15px;
+}
+
+.list__item:hover {
+    background: #d6dade;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+
 
 /* Mods */
 .input_short {}
@@ -83,6 +118,13 @@
 .input_req {}
 
 .input_move {}
+
+.input__dropdown_enabled {
+    position: absolute;
+    visibility: visible;
+    width: 300px;
+    height: 200px;
+}
 
 .required {
     font-family: 'PT Sans';
