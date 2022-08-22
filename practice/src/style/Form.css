@@ -157,6 +157,13 @@
     display: none;
 }
 
+.avatar__image {
+    width: 163.33px;
+    height: 163.33px;
+    border-radius: 50%;
+    
+}
+
 
 .avatar__choose {
     width: 163.33px;

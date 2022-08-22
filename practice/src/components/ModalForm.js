@@ -5,7 +5,7 @@ import '../style/Input.css'
 
 
 export default function ModalForm({ active, setActive }) {
-
+    const [image, setImage] = useState()
     function closeForm(e) {
         setActive(false)
     }
@@ -14,6 +14,16 @@ export default function ModalForm({ active, setActive }) {
         document.getElementById('avatar_file').click()
     }
 
+
+    function imageChange(files) {
+        const [file] = files
+        setImage(URL.createObjectURL(file))
+        // document.getElementById('avatar-image').src = image
+    }
+
+    function imageDelete() {
+        setImage(null)
+    }
 
     return (
 
@@ -37,14 +47,14 @@ export default function ModalForm({ active, setActive }) {
                             </div>
                             <div className='avatar__sandwich'>
                                 <div className='avatar__prewiew'>
-                                    <img src='/images/prewiew.png' />
+                                    <img id='avatar-image' className='avatar__image' src={image?image:'/images/prewiew.png'} />
                                 </div>
-                                <div className='avatar__delete' >
+                                <div className='avatar__delete' onClick={() => imageDelete()}>
                                 </div>
                                 <div className='avatar__choose' onClick={() => fileChoose()}>
-                                    <img src='/images/choose-file.png' />
+                                    <img  src={'/images/choose-file.png'} />
                                     Выберите файл
-                                    <input type='file' id='avatar_file' className='avatar__input' accept='.png, .jpg, .jpeg' />
+                                    <input type='file' id='avatar_file' className='avatar__input' accept='.png, .jpg, .jpeg' onChange={e => imageChange(e.target.files)} />
                                 </div>
                             </div>
 
