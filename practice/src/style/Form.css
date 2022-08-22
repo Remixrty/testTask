@@ -134,7 +134,7 @@
     cursor: pointer;
 }
 
-.avatar__delete::before, .avatar__delete::after{
+.avatar__delete::before, .avatar__delete::after {
     content: '';
     position: absolute;
     right: 20%;
@@ -145,12 +145,16 @@
     border-radius: 2px;
 }
 
-.avatar__delete::after{
+.avatar__delete::after {
     transform: rotate(-45deg);
 }
 
-.avatar__delete::before{
+.avatar__delete::before {
     transform: rotate(45deg);
+}
+
+.avatar__input {
+    display: none;
 }
 
 
@@ -170,7 +174,7 @@
     line-height: 28px;
     text-align: center;
     text-decoration-line: underline;
-
+    cursor: pointer;
     color: #FFFFFF;
 }
 

@@ -9,6 +9,12 @@ export default function ModalForm({ active, setActive }) {
     function closeForm(e) {
         setActive(false)
     }
+
+    function fileChoose() {
+        document.getElementById('avatar_file').click()
+    }
+
+
     return (
 
         <div className={active ? 'main active' : 'main'} onClick={e => closeForm(e)}>
@@ -24,6 +30,7 @@ export default function ModalForm({ active, setActive }) {
                     </div>
                     <div className='flex-part__column-avatar'>
                         <div className='avatar'>
+
                             <div className='avatar__header'>
                                 <div className='required required_position' >✱</div>
                                 <p className='avatar__text'>Логотип (jpeg, png)</p>
@@ -34,9 +41,10 @@ export default function ModalForm({ active, setActive }) {
                                 </div>
                                 <div className='avatar__delete' >
                                 </div>
-                                <div className='avatar__choose'>
+                                <div className='avatar__choose' onClick={() => fileChoose()}>
                                     <img src='/images/choose-file.png' />
                                     Выберите файл
+                                    <input type='file' id='avatar_file' className='avatar__input' accept='.png, .jpg, .jpeg' />
                                 </div>
                             </div>
 

@@ -8,7 +8,7 @@ export default function Table() {
     const [immortalData, setImmortalData] = useState([])
 
     const [sortFl, setSortFl] = useState({ key: undefined, direction: undefined })
-    const [searchString, setSearchString] = useState('')
+    const [searchString, setSearchString] = useState({ value: '', length: 0 })
     useEffect(() => {
         const getData = async () => {
             const resp = await axios(
@@ -41,22 +41,28 @@ export default function Table() {
     }
 
     useEffect(() => {
+        // setImmortalData(...data)
+        // if (searchString.value != '' && searchString.value.length > searchString?.length) {
         searching()
+        // }
+        // else setImmortalData(...data)
     }, [searchString])
 
     function searching() {
-        if (immortalData?.length !== data?.length) {
-            setImmortalData(data)
-        }
-        if (searchString.length > 2) {
-            console.log(searchString);
-            setImmortalData(findData)
-        }
+        searchString.length > 2 ? setImmortalData(findData) : setImmortalData(data)
     }
 
+
     const findData = useMemo(() => {
-        return immortalData.filter(elem => JSON.stringify(elem).toUpperCase().includes(searchString.toUpperCase()))
-    }, [immortalData])
+        return searchString.value.length > searchString?.length ? immortalData.filter(
+            elem =>
+                JSON.stringify(elem)?.toUpperCase().includes(searchString.value.toUpperCase())
+        ) : 
+        data.filter(
+            elem =>
+                JSON.stringify(elem)?.toUpperCase().includes(searchString.value.toUpperCase())
+        )
+    }, [searchString])
 
     return (
         <>
@@ -64,7 +70,7 @@ export default function Table() {
                 <button>Назад</button>
             </Link>
             <div className='table'>
-                <input type='text' className='table__input' placeholder='Поиск' onChange={e => setSearchString(e.target.value)}></input>
+                <input type='text' className='table__input' placeholder='Поиск' onChange={e => setSearchString({ value: e.target.value, length: searchString.value.length })}></input>
                 <table>
                     <thead>
                         <tr>
